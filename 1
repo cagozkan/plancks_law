@@ -1,0 +1,24 @@
+########################
+#Author:Cagla Ozkan
+#Date:11.04.2021
+#To do:Define Planck's Law 
+#Brief:Implementation of Planck's Law
+#Bugs:
+########################
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+h=6.625e-34              #Planck's Constant, Unit:W*s^2
+k=1.380e-23              #Boltzmann's Constant, Unit:W*s/K
+c=3e8                    #Speed of Light, Unit:m/s
+C1=2.0*3.14*h*c**2       #Constant1, Unit:W*m^2
+C2=c*h/k                 #Constant2, Unit:K*m
+T=6000                    #Temperature, Unit:K
+lambda_a=np.arange(0.1e-6,100e-6,1e-6)   #Wavelength, Unit:m
+a=lambda_a**5*(np.exp(C2/(lambda_a*T))-1)    #m^5
+W=C1*(1e-10)/a       #W/m^3
+plt.plot(lambda_a,W)
+plt.show
+
